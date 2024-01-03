@@ -1,8 +1,7 @@
-#!/usr/bin/node
-export default function appendToEachArrayValue(array, appendString) {
-  const arr = [];
+export default function appendToEachArrayValue (array, appendString) {
+  const _array = [];
   for (const idx in array) {
-    arr.push(appendString + idx);
+    _array.push(appendString + idx);
   }
-  return arr;
+  return _array;
 }

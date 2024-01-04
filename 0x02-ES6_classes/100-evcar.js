@@ -6,7 +6,8 @@ export default class EVCar extends Car {
     this._range = typeof range === 'string' ? range : undefined;
   }
 
+  // eslint-disable-next-line
   cloneCar() {
-    return new super.constructor();
+    return new Car();
   }
 }

@@ -1,9 +1,5 @@
 export default function cleanSet(set, startString) {
-  if (
-    !startString
-    || typeof startString !== 'string'
-    || set.constructor.name !== 'Set'
-  ) {
+  if (!startString || typeof startString !== 'string') {
     return '';
   }
   const newArray = Array.from(set);

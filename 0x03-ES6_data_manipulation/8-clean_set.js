@@ -1,8 +1,8 @@
 export default function cleanSet(set, startString) {
   if (
-    !startString ||
-    typeof startString !== 'string' ||
-    set.constructor.name !== 'Set'
+    !startString
+    || typeof startString !== 'string'
+    || set.constructor.name !== 'Set'
   ) {
     return '';
   }

@@ -41,12 +41,14 @@ const createEmployee = (
   return new Director();
 };
 
-const isDirector = (employee: DirectorInterface | TeacherInterface): boolean => {
-  return true;
-  // TODO: ..............................................
-}
+const isDirector = (employee: TeacherInterface | DirectorInterface): employee is DirectorInterface => (employee as DirectorInterface).workDirectorTasks !== undefined;
+
 
 const executeWork = (employee: DirectorInterface | TeacherInterface): string => {
   if (isDirector(employee)) return 'workDirectorTasks';
   return 'workTeacherTasks';
 }
+
+export {
+  DirectorInterface, TeacherInterface, Director, Teacher, createEmployee, isDirector, executeWork
+};

@@ -1,5 +1,4 @@
-/* The function countStudents that takes content from a database and
-filters trough it. */
+#!/usr/bin/node
 const fs = require('fs');
 
 const countStudents = (path) => {
@@ -29,14 +28,14 @@ const countStudents = (path) => {
       }
     });
     Object.keys(countField).forEach((key) => {
-      names = 'List: ';
+      const names = 'List: ';
       names += data
         .filter((item) => item.field === key)
         .map((item) => item.firstname)
         .join(', ');
       console.log(`Number of students in ${key}: ${countField[key]}. ${names}`);
     });
-  } catch {
+  } catch (e) {
     throw new Error('Cannot load the database');
   }
 };

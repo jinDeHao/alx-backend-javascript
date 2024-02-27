@@ -28,7 +28,7 @@ const countStudents = (path) => {
       }
     });
     Object.keys(countField).forEach((key) => {
-      const names = 'List: ';
+      let names = 'List: ';
       names += data
         .filter((item) => item.field === key)
         .map((item) => item.firstname)

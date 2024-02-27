@@ -1,6 +1,8 @@
+/* The function countStudents that takes content from a database and
+filters trough it. */
 const fs = require('fs');
 
-function countStudents(path) {
+const countStudents = (path) => {
   try {
     const csvData = fs.readFileSync(path, 'utf8');
     const lines = csvData.split('\n');
@@ -37,6 +39,6 @@ function countStudents(path) {
   } catch {
     throw new Error('Cannot load the database');
   }
-}
+};
 
 module.exports = countStudents;

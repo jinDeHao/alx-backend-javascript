@@ -3,8 +3,8 @@ const fs = require('fs');
 function countStudents(path) {
   try {
     const csvData = fs.readFileSync(path, 'utf8');
-    const rows = csvData.split('\n');
-    rows.splice(-1);
+    const lines = csvData.split('\n');
+    rows = lines.filter((item) => item.trim() !== '');
     console.log(`Number of students: ${rows.length - 1}`);
     const data = {};
     const head = rows[0].split(',');

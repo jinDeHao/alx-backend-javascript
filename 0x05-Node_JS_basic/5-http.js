@@ -1,13 +1,13 @@
 const http = require('http');
-
 const fs = require('fs');
 
 const countStudents = async (path, res) => {
   try {
+    const outputLines = [];
     const csvData = await fs.readFileSync(path, 'utf8');
     const lines = csvData.split('\n');
     const rows = lines.filter((item) => item.trim() !== '');
-    res.write(`Number of students: ${rows.length - 1}\n`);
+    outputLines.push(`Number of students: ${rows.length - 1}`);
     const data = [];
     const head = [...rows[0].split(',')];
     rows.splice(0, 1);
@@ -34,9 +34,11 @@ const countStudents = async (path, res) => {
         .filter((item) => item.field === key)
         .map((item) => item.firstname)
         .join(', ');
-      res.write(`Number of students in ${key}: ${countField[key]}. ${names}\n`);
+      outputLines.push(
+        `Number of students in ${key}: ${countField[key]}. ${names}`
+      );
     });
-    res.end();
+    res.end(outputLines.join('\n'));
   } catch (e) {
     throw new Error('Cannot load the database');
   }

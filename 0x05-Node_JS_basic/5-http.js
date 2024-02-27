@@ -46,7 +46,7 @@ const routes = {
   '/': (req, res) => res.end('Hello Holberton School!'),
   '/students': (req, res) => {
     countStudents(process.argv[2], res);
-    res.write('This is the list of our students \n');
+    res.write('This is the list of our students\n');
   },
 };
 

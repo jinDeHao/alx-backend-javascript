@@ -3,8 +3,8 @@ const fs = require('fs');
 
 const countStudents = async (path, res) => {
   try {
-    const outputLines = [];
     const csvData = await fs.readFileSync(path, 'utf8');
+    const outputLines = [];
     const lines = csvData.split('\n');
     const rows = lines.filter((item) => item.trim() !== '');
     outputLines.push(`Number of students: ${rows.length - 1}`);
@@ -47,8 +47,8 @@ const countStudents = async (path, res) => {
 const routes = {
   '/': (req, res) => res.end('Hello Holberton School!'),
   '/students': (req, res) => {
-    countStudents(process.argv[2], res);
     res.write('This is the list of our students\n');
+    countStudents(process.argv[2], res);
   },
 };
 

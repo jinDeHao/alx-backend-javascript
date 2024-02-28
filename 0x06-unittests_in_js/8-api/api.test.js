@@ -10,6 +10,12 @@ describe('Index page', () => {
     done();
   });
   it('check response status code', (done) => {
+    request.get('http://localhost:7865/DFG', (error, res, body) => {
+      expect(res.statusCode).equal(404);
+    });
+    done();
+  });
+  it('check response status code invalid endpoint', (done) => {
     request.get('http://localhost:7865/', (error, res, body) => {
       expect(res.statusCode).equal(200);
     });

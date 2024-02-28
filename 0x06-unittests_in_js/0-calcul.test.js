@@ -1,6 +1,7 @@
 const assert = require('assert');
-const calculateNumber = require('./0-calcul.js');
+const calculateNumber = require('./0-calcul');
 
+/* eslint-disable */
 describe('my test', () => {
   it('normal number', () => {
     assert.equal(calculateNumber(1, 3), 4);
@@ -11,3 +12,4 @@ describe('my test', () => {
     assert.equal(calculateNumber(1.5, 3.7), 6);
   });
 });
+/* eslint-enable */

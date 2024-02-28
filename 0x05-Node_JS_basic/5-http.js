@@ -35,7 +35,7 @@ const countStudents = async (path, res) => {
         .map((item) => item.firstname)
         .join(', ');
       outputLines.push(
-        `Number of students in ${key}: ${countField[key]}. ${names}`
+        `Number of students in ${key}: ${countField[key]}. ${names}`,
       );
     });
     res.write(outputLines.join('\n'));
@@ -51,7 +51,7 @@ const routes = {
   '/students': (req, res) => {
     res.write('This is the list of our students\n');
     countStudents(process.argv[2], res)
-      .then((data) => {
+      .then(() => {
         res.end();
       })
       .catch((error) => {

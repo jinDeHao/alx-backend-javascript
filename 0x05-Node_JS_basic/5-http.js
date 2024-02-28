@@ -45,7 +45,9 @@ const countStudents = async (path, res) => {
 };
 
 const routes = {
-  '/': (req, res) => res.end('Hello Holberton School!'),
+  '/': (req, res) => {
+    res.end('Hello Holberton School!');
+  },
   '/students': (req, res) => {
     res.write('This is the list of our students\n');
     countStudents(process.argv[2], res)

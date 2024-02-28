@@ -1,4 +1,4 @@
-const { expect } = require('chai');
+const { expect, assert } = require('chai');
 const request = require('request');
 
 /* eslint-disable */
@@ -12,6 +12,12 @@ describe('Index page', () => {
   it('check response status code', (done) => {
     request.get('http://localhost:7865/', (error, res, body) => {
       expect(res.statusCode).equal(200);
+    });
+    done();
+  });
+  it('check response Error', (done) => {
+    request.get('http://localhost:7865/', (error, res, body) => {
+      assert.isNull(error);
     });
     done();
   });

@@ -37,7 +37,7 @@ const countStudents = async (path) => {
         .map((item) => item.firstname)
         .join(', ');
       outputLines.push(
-        `Number of students in ${key}: ${countField[key]}. ${names}`
+        `Number of students in ${key}: ${countField[key]}. ${names}`,
       );
     });
     return outputLines.join('\n');
@@ -55,7 +55,7 @@ app.get('/students', (request, response) => {
     .then((data) => {
       response.send(`This is the list of our students\n${data}`);
     })
-    .catch((error) => {
+    .catch(() => {
       response
         .status(404)
         .send('This is the list of our students\nCannot load the database');

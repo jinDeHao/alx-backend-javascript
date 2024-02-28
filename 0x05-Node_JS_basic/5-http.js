@@ -49,7 +49,7 @@ const routes = {
   '/students': (req, res) => {
     res.write('This is the list of our students\n');
     countStudents(process.argv[2], res)
-      .then(() => {
+      .then((data) => {
         res.end();
       })
       .catch((error) => {

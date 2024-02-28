@@ -38,7 +38,7 @@ const countStudents = async (path, res) => {
         `Number of students in ${key}: ${countField[key]}. ${names}`
       );
     });
-    res.end(outputLines.join('\n'));
+    res.write(outputLines.join('\n'));
   } catch (e) {
     throw new Error('Cannot load the database');
   }
@@ -48,7 +48,14 @@ const routes = {
   '/': (req, res) => res.end('Hello Holberton School!'),
   '/students': (req, res) => {
     res.write('This is the list of our students\n');
-    countStudents(process.argv[2], res);
+    countStudents(process.argv[2], res)
+      .then(() => {
+        res.end();
+      })
+      .catch((error) => {
+        res.statusCode = 404;
+        res.end(error.message);
+      });
   },
 };
 
